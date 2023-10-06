@@ -127,6 +127,7 @@ final GoRouter router = GoRouter(
         ),
       ],
     ),
+    
     GoRoute(
       path: '/map',
       name: 'MapPage',

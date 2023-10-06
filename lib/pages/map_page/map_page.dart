@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hakaton_map_test/pages/profile_page/profile_page_model.dart';
 import 'package:hakaton_map_test/pages/tabs_page/tabs_page.dart';
+import 'package:latlng/latlng.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
@@ -34,10 +35,10 @@ class _MapPageState extends State<MapPage> {
         children: [
           const PageAppBar(),
           const SizedBox(height: 32),
-          Center(
+          const Center(
             child: Text(
               '5/10',
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'gothampro',
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
@@ -61,10 +62,10 @@ class _MapPageState extends State<MapPage> {
             barRadius: const Radius.circular(46),
           ),
           const SizedBox(height: 12),
-          Center(
+          const Center(
             child: Text(
               'Выберите страну',
-              style: const TextStyle(
+              style: TextStyle(
                 fontFamily: 'gothampro',
                 fontSize: 16,
                 fontWeight: FontWeight.w400,
@@ -81,15 +82,15 @@ class _MapPageState extends State<MapPage> {
               options: MapOptions(
                 maxZoom: 15,
                 minZoom: 5,
-                
-              ),              
+                zoom: 14,
+              ),
               children: [
-                Tile(),
+                const Tile(),
               ],
             ),
           ),
-          SizedBox(height: 20),
-          NextButton(),
+          const SizedBox(height: 20),
+          const NextButton(),
           SizedBox(height: bottomNavBarHeight + 35),
         ],
       ),
@@ -111,8 +112,6 @@ class Tile extends StatelessWidget {
   }
 }
 
-
-
 class PageAppBar extends StatelessWidget {
   const PageAppBar({super.key});
 
@@ -123,7 +122,7 @@ class PageAppBar extends StatelessWidget {
         IconButton(
           onPressed: () => context.pop(),
           icon: SvgPicture.asset('assets/svg_icons/arrow_left.svg'),
-          style: ButtonStyle(tapTargetSize: MaterialTapTargetSize.shrinkWrap),
+          style: const ButtonStyle(tapTargetSize: MaterialTapTargetSize.shrinkWrap),
         ),
         Expanded(
           child: Center(
@@ -141,9 +140,8 @@ class PageAppBar extends StatelessWidget {
               ],
             ),
           ),
-          
         ),
-        SizedBox(height: 24, width: 24),
+        const SizedBox(height: 24, width: 24),
       ],
     );
   }
